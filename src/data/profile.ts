@@ -15,14 +15,27 @@ export const profile = {
   profileImageAlt: "Minghan Zhu at the San Francisco waterfront with the Bay Bridge in the background.",
   diagramImage: "/assets/dbs-system-illustration.jpg",
   intro:
-    "I build machine-learning pipelines, experimental analysis tools, and clinician-facing visualizations for neural signal research, adaptive DBS, and data-intensive scientific workflows.",
+    "I build the data infrastructure, neural signal models, and clinician-facing software behind adaptive DBS research at UCSF. My work turns implanted-device recordings, wearable data, sleep measures, and clinical assessments into reproducible ML pipelines for biomarker-guided neuromodulation.",
+  bio: [
+    "I am a computer scientist working between machine learning, neural engineering, and clinical research operations. In UCSF Neurology, I help design and maintain a custom adaptive DBS pipeline for Parkinson's disease studies, connecting simulator-driven parameter testing, probabilistic stimulation-effect models, surrogate neural-signal generation, symptom-profile metrics, and constrained optimization for clinician-reviewed parameter selection.",
+    "That work sits on longitudinal, multimodal data from implanted sensing devices, wearables, sleep recordings, clinical assessments, and device logs. My day-to-day focus is making experimental ML systems reliable, reproducible, and usable by investigators and clinicians, while keeping enough domain context to reason about neural signals, device constraints, and the clinical questions behind the code.",
+    "Before UCSF, I built data-heavy software across healthcare ETL, LLM search, IoT systems, and semantic catalog mapping. That background shaped how I approach research engineering: rigorous enough for science, practical enough for real workflows, and designed so specialists can inspect, trust, and extend the system.",
+  ],
   focus: [
-    "Intracranial neural signal analysis for emotion, movement, and motivation studies",
-    "Adaptive DBS research pipelines, experiment tooling, and clinician-facing visualization",
-    "Machine-learning methods for ECoG/LFP features, decoding, and statistical validation",
-    "Research infrastructure for LLM search, healthcare ETL, and reproducible data systems",
+    "Adaptive DBS ML pipelines for Parkinson's disease and broader adaptive neuromodulation",
+    "Multimodal neural, wearable, sleep, clinical, and device-log data infrastructure",
+    "Patient-specific signal processing, probabilistic modeling, surrogate data generation, and constrained optimization",
+    "Clinician-facing decision-support visualizations and reproducible research software",
   ],
   quickStats: [
+    {
+      value: "5",
+      label: "integrated modules in a custom aDBS ML pipeline",
+    },
+    {
+      value: "24",
+      label: "patient longitudinal study data design across neural, wearable, sleep, and clinical sources",
+    },
     {
       value: "2",
       label: "neural decoding conference publications",
@@ -30,14 +43,6 @@ export const profile = {
     {
       value: "1",
       label: "patent application publication in catalog mapping",
-    },
-    {
-      value: "43",
-      label: "provider data pulls consolidated into HIPAA-conscious ETL",
-    },
-    {
-      value: "67%",
-      label: "less manual data entry in custom ERP workflows",
     },
   ],
 };
@@ -49,13 +54,13 @@ export const experience = [
     title: "Associate Specialist, Department of Neurology, UCSF",
     dates: "May 2025 - Present",
     summary:
-      "Building data and ML systems for neural signal analysis in adaptive DBS research.",
+      "Building ML and data infrastructure for adaptive DBS research, from neural signal processing to clinician-reviewed parameter-selection workflows.",
     bullets: [
-      "Design and develop data and machine-learning pipelines to analyze neural signals related to movement and motivation for aDBS research.",
-      "Build real-time data processing and visualization tools for clinicians to monitor and analyze neural signals.",
-      "Develop machine-learning pipelines and visualizations in collaboration with clinicians for aDBS optimization.",
+      "Design and maintain pipelines for implanted neural recordings, wearable motor data, sleep measures, clinical assessments, and device telemetry.",
+      "Develop ML modules for adaptive DBS research, including stimulation simulation, probabilistic biomarker response modeling, surrogate LFP generation, symptom-profile metrics, and constrained optimization.",
+      "Build clinician-facing visualization and analysis tools that support review of adaptive stimulation parameters and experimental outcomes.",
     ],
-    tags: ["Neural signals", "ML pipelines", "Visualization", "Clinical tooling"],
+    tags: ["Adaptive DBS", "Neural devices", "Signal processing", "Clinical ML"],
   },
   {
     company: "ANIUNA Inc.",
@@ -149,7 +154,7 @@ export const research = [
     dates: "May 2025 - Present",
     title: "Associate Specialist",
     summary:
-      "Research role focused on adaptive DBS, neural signal analysis, and ML/data pipelines for movement and motivation studies, with clinician-facing visualization tools for aDBS optimization.",
+      "Research role focused on adaptive DBS, neural signal analysis, and ML/data infrastructure for movement, motivation, and sleep studies, with clinician-facing visualization tools for aDBS optimization.",
   },
   {
     lab: "Columbia University",
