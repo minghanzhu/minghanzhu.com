@@ -157,7 +157,7 @@ export const research = [
     dates: "Jan 2021 - May 2021",
     title: "Research Assistant",
     summary:
-      "Used signal analysis and machine learning in the NSF-funded COSMOS Smart City Intersections project to optimize traffic flow, reduce congestion, and improve urban safety in New York City.",
+      "Used signal analysis and machine learning in the NSF-funded COSMOS smart-city IoT intersections project to optimize traffic flow, reduce congestion, and improve urban safety in New York City.",
   },
   {
     lab: "Columbia University",
