@@ -504,6 +504,12 @@ h3 {
   box-shadow: none;
 }
 
+.publication-card h3 a:hover,
+.publication-card h3 a:focus-visible {
+  color: var(--teal-dark);
+  outline: none;
+}
+
 .skills-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
