@@ -1,0 +1,12 @@
+---
+import { profile } from "../data/profile";
+---
+
+<footer class="site-footer">
+  <p>{profile.name}</p>
+  <div>
+    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    <span aria-hidden="true">/</span>
+    <a href={profile.linkedin}>LinkedIn</a>
+  </div>
+</footer>

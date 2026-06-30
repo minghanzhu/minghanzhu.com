@@ -1,0 +1,153 @@
+---
+import ExperienceCard from "../components/ExperienceCard.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import TagList from "../components/TagList.astro";
+import { education, experience, profile, research, skills } from "../data/profile";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const currentExperience = experience[0];
+const selectedExperience = experience.slice(0, 5);
+---
+
+<BaseLayout>
+  <SiteHeader />
+
+  <main>
+    <section class="intro-shell">
+      <img src={profile.heroImage} alt="" class="intro-art" loading="eager" />
+      <div class="intro-overlay"></div>
+      <div class="content-grid intro-content">
+        <div class="intro-copy">
+          <p class="eyebrow">{profile.location}</p>
+          <h1>{profile.name}</h1>
+          <p class="lede">{profile.role}</p>
+          <p class="affiliation-line">
+            Associated with{" "}
+            <a href={profile.affiliations[0].url}>{profile.affiliations[0].name}</a>
+          </p>
+          <p class="intro-text">{profile.intro}</p>
+          <div class="button-row" aria-label="Profile links">
+            <a class="button primary" href="/resume/">View CV</a>
+            <a class="button ghost" href={profile.linkedin}>LinkedIn</a>
+          </div>
+        </div>
+        <aside class="current-panel" aria-label="Current research focus">
+          <img
+            src={profile.diagramImage}
+            alt="Illustration of a deep brain stimulation system with implanted brain leads and an external controller."
+            class="panel-image"
+            loading="eager"
+          />
+          <p class="eyebrow">Current research</p>
+          <h2>{currentExperience.company}</h2>
+          <p class="muted">{currentExperience.title}</p>
+          <p class="muted">
+            <a href={profile.affiliations[0].url}>{profile.affiliations[0].name}</a>
+          </p>
+          <p>{currentExperience.summary}</p>
+          <TagList items={currentExperience.tags} />
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-grid section-band">
+      <div class="section-heading">
+        <p class="eyebrow">Profile</p>
+        <h2>Systems for data-intensive research and product teams.</h2>
+      </div>
+      <div class="focus-grid">
+        {profile.focus.map((item) => <p>{item}</p>)}
+      </div>
+    </section>
+
+    <section class="metric-band" aria-label="Selected impact">
+      <div class="content-grid metric-grid">
+        {profile.quickStats.map((stat) => (
+          <article>
+            <strong>{stat.value}</strong>
+            <span>{stat.label}</span>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="content-grid section-band" id="work">
+      <div class="section-heading">
+        <p class="eyebrow">Experience</p>
+        <h2>Engineering across ML platforms, healthcare data, and operational AI.</h2>
+      </div>
+      <div class="experience-grid">
+        {selectedExperience.map((item) => <ExperienceCard item={item} />)}
+      </div>
+      <div class="section-action">
+        <a class="button" href="/resume/">Read full resume</a>
+      </div>
+    </section>
+
+    <section class="content-grid section-band split-section" id="research">
+      <div class="section-heading">
+        <p class="eyebrow">Research</p>
+        <h2>Current and past research in neural signals, urban systems, language, and computer vision.</h2>
+      </div>
+      <div class="research-list">
+        {research.map((item) => (
+          <article class="compact-card">
+            <p class="eyebrow">{item.dates}</p>
+            <h3>{item.title}</h3>
+            <p class="muted">{item.lab} · {item.context}</p>
+            <p>{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="content-grid section-band split-section">
+      <div class="section-heading">
+        <p class="eyebrow">Education</p>
+        <h2>Computer science training at Columbia and Brandeis.</h2>
+      </div>
+      <div class="education-list">
+        {education.map((item) => (
+          <article class="compact-card">
+            <h3>{item.school}</h3>
+            <p class="muted">{item.location}</p>
+            <ul class="clean-list">
+              {item.credentials.map((credential) => <li>{credential}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="content-grid section-band">
+      <div class="section-heading">
+        <p class="eyebrow">Technical Stack</p>
+        <h2>Comfortable from model experiments to deployed infrastructure.</h2>
+      </div>
+      <div class="skills-grid">
+        {skills.map((group) => (
+          <article class="skill-card">
+            <h3>{group.group}</h3>
+            <TagList items={group.items} />
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact-band">
+      <div class="content-grid contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Open to research-heavy engineering conversations.</h2>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href={`mailto:${profile.email}`}>Email Minghan</a>
+          <a class="button" href={profile.linkedin}>LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
