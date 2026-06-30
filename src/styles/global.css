@@ -574,6 +574,11 @@ h3 {
   padding-block: 72px 36px;
 }
 
+.resume-hero > div:first-child {
+  display: grid;
+  gap: 14px;
+}
+
 .resume-hero h1 {
   font-size: 3.55rem;
 }
