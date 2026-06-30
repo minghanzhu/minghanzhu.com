@@ -11,6 +11,8 @@ export const profile = {
     },
   ],
   heroImage: "/assets/neural-hardware-lab.jpg",
+  profileImage: "/assets/minghan-zhu-profile.jpg",
+  profileImageAlt: "Minghan Zhu at the San Francisco waterfront with the Bay Bridge in the background.",
   diagramImage: "/assets/dbs-system-illustration.jpg",
   intro:
     "I design production software, data pipelines, and applied AI workflows across neural signal analysis, financial research, health data, and operations-heavy products.",
