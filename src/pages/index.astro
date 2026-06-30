@@ -3,7 +3,7 @@ import ExperienceCard from "../components/ExperienceCard.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import TagList from "../components/TagList.astro";
-import { education, experience, profile, research, skills } from "../data/profile";
+import { education, experience, profile, publications, research, skills } from "../data/profile";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const currentExperience = experience[0];
@@ -97,6 +97,24 @@ const selectedExperience = experience.slice(0, 5);
             <p class="eyebrow">{item.dates}</p>
             <h3>{item.title}</h3>
             <p class="muted">{item.lab} · {item.context}</p>
+            <p>{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="content-grid section-band split-section" id="publications">
+      <div class="section-heading">
+        <p class="eyebrow">Publications</p>
+        <h2>Patents, conference abstracts, and posters.</h2>
+      </div>
+      <div class="publication-list">
+        {publications.map((item) => (
+          <article class="compact-card publication-card">
+            <p class="eyebrow">{item.type} · {item.dates}</p>
+            <h3><a href={item.url}>{item.title}</a></h3>
+            <p class="muted">{item.venue}</p>
+            <p class="muted">{item.authors}</p>
             <p>{item.summary}</p>
           </article>
         ))}

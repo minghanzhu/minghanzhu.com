@@ -169,6 +169,39 @@ export const research = [
   },
 ];
 
+export const publications = [
+  {
+    type: "Conference poster",
+    title: "Machine Learning Decoding of Emotional Valence from Intracranial Cortical and Subcortical Electrophysiological Signals",
+    venue: "Cognitive Neuroscience Society, Poster Session D",
+    dates: "Mar 9, 2026",
+    authors: "Max Zhu, Jinxiao Zhang, Clay Smyth, Lexin Li, Philip Starr, Simon Little",
+    url: "https://www.cogneurosociety.org/poster/?id=7524",
+    summary:
+      "Poster on decoding emotional valence from intracranial cortical and subcortical electrophysiological signals.",
+  },
+  {
+    type: "Conference abstract",
+    title: "Machine Learning Decoding of Emotional Responses to Stimuli from Intracranial Brain Signals",
+    venue: "Neuroscience 2025, Session LBP047 - H.04. Emotion",
+    dates: "Nov 17, 2025",
+    authors: "M. Zhu, J. Zhang, C. Smyth, P. A. Starr, L. Li, S. Little",
+    url: "https://www.abstractsonline.com/pp8/#!/21171/presentation/42854",
+    summary:
+      "Abstract on machine-learning classification of emotional responses from intracranial neural signals.",
+  },
+  {
+    type: "Patent application publication",
+    title: "Automatic Creation of Master Catalog and Catalog Map for Reconciliation of Merchant Point-of-Sale Catalog and Third-Party Service Catalog",
+    venue: "US20220207507A1",
+    dates: "Published Jun 30, 2022",
+    authors: "Charles Robert Berg, Minghan Zhu, Christopher David Monk",
+    url: "https://patents.google.com/patent/US20220207507A1/en?oq=US20220207507A1",
+    summary:
+      "Patent application publication for automated catalog mapping and reconciliation across merchant point-of-sale and third-party service catalogs.",
+  },
+];
+
 export const education = [
   {
     school: "Columbia University",
