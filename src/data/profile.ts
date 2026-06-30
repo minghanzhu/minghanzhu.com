@@ -1,6 +1,6 @@
 export const profile = {
   name: "Minghan (Max) Zhu",
-  role: "Associate Specialist, Department of Neurology, UCSF.",
+  role: "Research engineer and Associate Specialist, Department of Neurology, UCSF.",
   location: "San Francisco, CA",
   email: "mz2716@columbia.edu",
   linkedin: "https://www.linkedin.com/in/minghan-zhu",
@@ -15,29 +15,29 @@ export const profile = {
   profileImageAlt: "Minghan Zhu at the San Francisco waterfront with the Bay Bridge in the background.",
   diagramImage: "/assets/dbs-system-illustration.jpg",
   intro:
-    "I design production software, data pipelines, and applied AI workflows across neural signal analysis, financial research, health data, and operations-heavy products.",
+    "I build machine-learning pipelines, experimental analysis tools, and clinician-facing visualizations for neural signal research, adaptive DBS, and data-intensive scientific workflows.",
   focus: [
-    "Adaptive DBS research tooling and neural signal analysis",
-    "Enterprise LLM search, agentic copilots, and vertical research systems",
-    "Data pipelines, ETL reliability, and clinician-facing visualizations",
-    "Applied AI prototyping for manufacturing and supply-chain workflows",
+    "Intracranial neural signal analysis for emotion, movement, and motivation studies",
+    "Adaptive DBS research pipelines, experiment tooling, and clinician-facing visualization",
+    "Machine-learning methods for ECoG/LFP features, decoding, and statistical validation",
+    "Research infrastructure for LLM search, healthcare ETL, and reproducible data systems",
   ],
   quickStats: [
     {
-      value: "67%",
-      label: "less manual data entry in custom ERP workflows",
+      value: "2",
+      label: "neural decoding conference publications",
     },
     {
-      value: "45%",
-      label: "shorter design cycles through AI prototype pipelines",
+      value: "1",
+      label: "patent application publication in catalog mapping",
     },
     {
       value: "43",
       label: "provider data pulls consolidated into HIPAA-conscious ETL",
     },
     {
-      value: "1",
-      label: "issued patent for semantic catalog data mapping",
+      value: "67%",
+      label: "less manual data entry in custom ERP workflows",
     },
   ],
 };

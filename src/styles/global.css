@@ -491,6 +491,7 @@ h3 {
 
 .research-list,
 .education-list,
+.publication-list,
 .skills-grid {
   display: grid;
   gap: 16px;
