@@ -222,6 +222,17 @@ h3 {
   gap: 20px;
 }
 
+.intro-profile-photo {
+  width: clamp(132px, 16vw, 188px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(215, 223, 217, 0.92);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
 .lede {
   max-width: 680px;
   color: #263230;
