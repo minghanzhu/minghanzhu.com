@@ -9,7 +9,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="Resume | Minghan (Max) Zhu"
-  description="Resume for Minghan (Max) Zhu, Associate Specialist in the Department of Neurology at UCSF and associated with the UCSF Weill Institute for Neurosciences."
+  description="Resume for Minghan (Max) Zhu, research engineer and Associate Specialist in the Department of Neurology at UCSF, building ML systems for neural signal analysis and adaptive DBS research."
 >
   <SiteHeader />
 
@@ -59,8 +59,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="resume-main">
         <section>
           <div class="section-heading tight">
+            <p class="eyebrow">Publications</p>
+            <h2>Neural decoding, abstracts, and patent work</h2>
+          </div>
+          <div class="publication-list">
+            {publications.map((item) => (
+              <article class="compact-card publication-card">
+                <p class="eyebrow">{item.type} · {item.dates}</p>
+                <h3><a href={item.url}>{item.title}</a></h3>
+                <p class="muted">{item.venue}</p>
+                <p class="muted">{item.authors}</p>
+                <p>{item.summary}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div class="section-heading tight">
             <p class="eyebrow">Experience</p>
-            <h2>Professional work</h2>
+            <h2>Research engineering and applied ML work</h2>
           </div>
           <div class="experience-grid">
             {experience.map((item) => <ExperienceCard item={item} />)}
@@ -84,23 +102,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
         </section>
 
-        <section>
-          <div class="section-heading tight">
-            <p class="eyebrow">Publications</p>
-            <h2>Patents, abstracts, and posters</h2>
-          </div>
-          <div class="publication-list">
-            {publications.map((item) => (
-              <article class="compact-card publication-card">
-                <p class="eyebrow">{item.type} · {item.dates}</p>
-                <h3><a href={item.url}>{item.title}</a></h3>
-                <p class="muted">{item.venue}</p>
-                <p class="muted">{item.authors}</p>
-                <p>{item.summary}</p>
-              </article>
-            ))}
-          </div>
-        </section>
       </div>
     </section>
   </main>
