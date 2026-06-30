@@ -1,0 +1,15 @@
+.astro/
+.env
+.env.*
+dist/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+
+# Local source media not used by the published site
+/IMG_1738.JPG
+/35970150_2015430931802526_8434029332149567488_n.jpg
+/35970758_2015429231802696_3922188109214646272_n.jpg
+/Neuroscience 2025 _ Presentation.pdf
