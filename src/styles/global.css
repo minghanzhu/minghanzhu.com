@@ -375,6 +375,20 @@ h3 {
   margin-bottom: 18px;
 }
 
+.profile-narrative {
+  display: grid;
+  max-width: 920px;
+  gap: 16px;
+  margin-bottom: 30px;
+  color: #263230;
+  font-size: 1.07rem;
+  line-height: 1.72;
+}
+
+.profile-narrative p {
+  max-width: 82ch;
+}
+
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
