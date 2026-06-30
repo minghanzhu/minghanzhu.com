@@ -211,7 +211,7 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.55fr);
   gap: 56px;
-  align-items: end;
+  align-items: start;
   padding-block: 92px 64px;
 }
 
