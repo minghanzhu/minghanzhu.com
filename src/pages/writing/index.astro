@@ -1,0 +1,37 @@
+---
+import SectionHeading from "../../components/SectionHeading.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const modules = import.meta.glob("./*.mdx", { eager: true });
+const posts = Object.values(modules)
+  .map((post: any) => ({ ...post.frontmatter, url: post.url }))
+  .filter((post) => !post.draft)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const format = (date: string) =>
+  new Date(date).toLocaleDateString("en-US", { year: "numeric", month: "short", timeZone: "UTC" });
+---
+
+<BaseLayout
+  title="Writing | Minghan (Max) Zhu"
+  description="Plain-language explainers on deep brain stimulation, neural signals, and the software behind neuromodulation research, by Max Zhu."
+>
+  <section class="wrap narrow page-head">
+    <p class="kicker">Writing</p>
+    <h1>Notes on brain stimulation, signals, and software</h1>
+    <p class="lede">Plain-language explainers about the science and engineering I work on.</p>
+  </section>
+
+  <section class="wrap narrow section">
+    <SectionHeading label="Posts" />
+    <div class="pub-list">
+      {posts.map((post) => (
+        <article class="pub">
+          <p class="meta">{format(post.date)}{post.readingTime && ` · ${post.readingTime}`}</p>
+          <h3><a href={post.url}>{post.title}</a></h3>
+          <p class="summary">{post.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

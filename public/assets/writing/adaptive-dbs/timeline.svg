@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="516.6pt" height="147.456pt" viewBox="0 0 516.6 147.456" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-10T14:18:35.098994</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.3, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 147.456 
+L 516.6 147.456 
+L 516.6 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 7.2 73.728 
+L 509.4 73.728 
+" clip-path="url(#p670ac6728d)" style="fill: none; stroke: #c9d0cd; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="me743197074" d="M 0 3.872983 
+C 1.027127 3.872983 2.012324 3.464901 2.738613 2.738613 
+C 3.464901 2.012324 3.872983 1.027127 3.872983 0 
+C 3.872983 -1.027127 3.464901 -2.012324 2.738613 -2.738613 
+C 2.012324 -3.464901 1.027127 -3.872983 0 -3.872983 
+C -1.027127 -3.872983 -2.012324 -3.464901 -2.738613 -2.738613 
+C -3.464901 -2.012324 -3.872983 -1.027127 -3.872983 0 
+C -3.872983 1.027127 -3.464901 2.012324 -2.738613 2.738613 
+C -2.012324 3.464901 -1.027127 3.872983 0 3.872983 
+z
+" style="stroke: #1a1f1e"/>
+    </defs>
+    <g clip-path="url(#p670ac6728d)">
+     <use xlink:href="#me743197074" x="55.8" y="73.728" style="fill: #1a1f1e; stroke: #1a1f1e"/>
+    </g>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1f1e" x="55.8" y="59.897006" transform="rotate(-0 55.8 59.897006)">1987</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(29.0475 37.280813)">First thalamic</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(13.540781 46.904063)">stimulation for tremor</text>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#p670ac6728d)">
+     <use xlink:href="#me743197074" x="136.8" y="73.728" style="fill: #1a1f1e; stroke: #1a1f1e"/>
+    </g>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1f1e" x="136.8" y="92.902509" transform="rotate(-0 136.8 92.902509)">1995</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(112.038047 105.132094)">Subthalamic</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(101.289375 114.755344)">stimulation for PD</text>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#p670ac6728d)">
+     <use xlink:href="#me743197074" x="217.8" y="73.728" style="fill: #1a1f1e; stroke: #1a1f1e"/>
+    </g>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1f1e" x="217.8" y="59.897006" transform="rotate(-0 217.8 59.897006)">2002</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(189.039375 37.280813)">FDA approves</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(194.544141 46.904063)">DBS for PD</text>
+   </g>
+   <g id="PathCollection_4">
+    <defs>
+     <path id="m0db15abd87" d="M 0 3.872983 
+C 1.027127 3.872983 2.012324 3.464901 2.738613 2.738613 
+C 3.464901 2.012324 3.872983 1.027127 3.872983 0 
+C 3.872983 -1.027127 3.464901 -2.012324 2.738613 -2.738613 
+C 2.012324 -3.464901 1.027127 -3.872983 0 -3.872983 
+C -1.027127 -3.872983 -2.012324 -3.464901 -2.738613 -2.738613 
+C -3.464901 -2.012324 -3.872983 -1.027127 -3.872983 0 
+C -3.872983 1.027127 -3.464901 2.012324 -2.738613 2.738613 
+C -2.012324 3.464901 -1.027127 3.872983 0 3.872983 
+z
+" style="stroke: #06747b"/>
+    </defs>
+    <g clip-path="url(#p670ac6728d)">
+     <use xlink:href="#m0db15abd87" x="298.8" y="73.728" style="fill: #06747b; stroke: #06747b"/>
+    </g>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #06747b" x="298.8" y="92.902509" transform="rotate(-0 298.8 92.902509)">2013</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(261.287578 105.307875)">First adaptive DBS</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(278.287734 114.931125)">in patients</text>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#p670ac6728d)">
+     <use xlink:href="#m0db15abd87" x="379.8" y="73.728" style="fill: #06747b; stroke: #06747b"/>
+    </g>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #06747b" x="379.8" y="59.897006" transform="rotate(-0 379.8 59.897006)">2024</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(343.284609 37.117688)">Adaptive DBS trial</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(358.790625 46.850625)">in daily life</text>
+   </g>
+   <g id="PathCollection_6">
+    <g clip-path="url(#p670ac6728d)">
+     <use xlink:href="#m0db15abd87" x="460.8" y="73.728" style="fill: #06747b; stroke: #06747b"/>
+    </g>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #06747b" x="460.8" y="92.902509" transform="rotate(-0 460.8 92.902509)">2025</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(423.287578 105.307875)">First adaptive DBS</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; fill: #7b8582" transform="translate(426.536016 114.956438)">system approved</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p670ac6728d">
+   <rect x="7.2" y="7.2" width="502.2" height="133.056"/>
+  </clipPath>
+ </defs>
+</svg>

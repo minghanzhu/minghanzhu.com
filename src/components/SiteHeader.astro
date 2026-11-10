@@ -2,10 +2,12 @@
 const links = [
   { href: "/", label: "Home" },
   { href: "/research/", label: "Research" },
+  { href: "/writing/", label: "Writing" },
   { href: "/cv/", label: "CV" },
 ];
 
 const path = Astro.url.pathname.replace(/\/?$/, "/");
+const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
 ---
 
 <header class="site-header">
@@ -13,7 +15,7 @@ const path = Astro.url.pathname.replace(/\/?$/, "/");
     <a class="brand" href="/">Max Zhu</a>
     <nav aria-label="Primary">
       {links.map((link) => (
-        <a href={link.href} aria-current={path === link.href ? "page" : undefined}>{link.label}</a>
+        <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a>
       ))}
     </nav>
   </div>

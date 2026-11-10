@@ -1,0 +1,27 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  credit?: string;
+  creditUrl?: string;
+  wide?: boolean;
+}
+
+const { src, alt, caption, credit, creditUrl, wide = false } = Astro.props;
+---
+
+<figure class:list={["post-figure", { wide }]}>
+  <img src={src} alt={alt} loading="lazy" />
+  {(caption || credit) && (
+    <figcaption>
+      {caption}
+      {credit && (
+        <span class="credit">
+          {" "}
+          {creditUrl ? <a href={creditUrl}>{credit}</a> : credit}
+        </span>
+      )}
+    </figcaption>
+  )}
+</figure>

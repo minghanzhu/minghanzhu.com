@@ -1,0 +1,182 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: "Adaptive deep brain stimulation, explained"
+description: "How a brain implant for Parkinson's disease works, why it is learning to listen to the brain, and what makes that hard."
+date: 2026-11-10
+readingTime: 10 min read
+image: /assets/neural-hardware-lab.jpg
+---
+
+import Figure from "../../components/Figure.astro";
+
+My grandma had Parkinson's disease. Watching her struggle with it is a big part of why I now work on the software behind a treatment called deep brain stimulation, or DBS. People often ask me what that actually means, so this post is my attempt at a plain-language answer: what DBS is, why researchers are teaching it to *listen* to the brain, and why that turns out to be hard.
+
+<Figure
+  src="/assets/neural-hardware-lab.jpg"
+  alt="UCSF neurosurgeon Philip Starr's gloved hands guiding a DBS electrode through a stereotactic frame during surgery."
+  caption="UCSF neurosurgeon Philip Starr implanting a DBS electrode. A frame fixed to the head guides the thin electrode to its target deep inside the brain."
+  credit="Photo: UCSF."
+  creditUrl="https://www.facebook.com/ucsf/posts/shown-here-ucsf-neurosurgeon-philip-starr-implants-a-deep-brain-stimulation-dbs-/2015431021802517/"
+  wide
+/>
+
+## Parkinson's is a problem with a movement circuit
+
+Moving your hand feels effortless, but behind it is a loop of brain regions that constantly checks and balances each other. The motor cortex plans a movement; deeper structures called the basal ganglia decide how much to let through; the thalamus relays the result back to the cortex.
+
+That loop depends on **dopamine**, a chemical messenger made by a small cluster of cells called the substantia nigra. In Parkinson's disease, those cells slowly die. With less dopamine, the circuit tilts out of balance, as if a brake were stuck on. The result is the familiar symptoms: slowness (*bradykinesia*), stiffness (*rigidity*), tremor, and trouble with balance and walking. Many people also deal with less visible symptoms, like poor sleep, low mood, and changes in memory.
+
+<Figure
+  src="/assets/writing/adaptive-dbs/circuit.svg"
+  alt="Simplified diagram of the motor circuit: motor cortex, striatum, GPi, STN and thalamus connected in a loop, with the substantia nigra sending less dopamine to the striatum and an electrode placed in the STN."
+  caption="A greatly simplified movement circuit. In Parkinson's, the substantia nigra sends less dopamine to the striatum. The subthalamic nucleus (STN) is one of the most common places to put a DBS electrode."
+/>
+
+The main treatment is **levodopa**, a drug the brain turns into dopamine. It has been used since the late 1960s and it works remarkably well, at first. Over years, each dose tends to help for a shorter time. Symptoms return before the next pill ("wearing off"), and too much effect can cause *dyskinesia*: involuntary, writhing movements. Many people end up cycling between too little and too much several times a day.
+
+## Deep brain stimulation: a pacemaker for the brain
+
+DBS adds another way to rebalance the circuit. A surgeon places thin electrodes into a target such as the **subthalamic nucleus** (STN). Wires under the skin connect them to a battery-powered stimulator, usually implanted below the collarbone, which delivers small electrical pulses about 130 times per second. A clinician adjusts the settings wirelessly with a tablet.
+
+<Figure
+  src="/assets/dbs-system-illustration.jpg"
+  alt="Illustration of a deep brain stimulation system: an electrode in the brain connected by a wire under the skin to a stimulator in the chest, programmed with a tablet."
+  caption="The parts of a DBS system: electrodes in the brain, an extension wire, a stimulator in the chest, and a programmer the clinician uses to change settings."
+/>
+
+The history is a nice example of a lucky observation. In 1987, Alim-Louis Benabid's team in Grenoble noticed that stimulating the thalamus at high frequency stopped tremor, mimicking the effect of surgically destroying that tissue, but in a reversible, adjustable way ([Benabid et al., 1987](https://doi.org/10.1159/000100803)). By 1995 the same group showed that stimulating the STN improved slowness and stiffness too ([Limousin et al., 1995](https://doi.org/10.1016/s0140-6736(95)90062-4)). The FDA approved DBS for Parkinson's in 2002, and a large randomized trial later showed it improved quality of life more than medication alone for people with advanced disease ([Deuschl et al., 2006](https://doi.org/10.1056/NEJMoa060281)).
+
+<Figure
+  src="/assets/writing/adaptive-dbs/timeline.svg"
+  alt="Timeline: 1987 first thalamic stimulation for tremor; 1995 subthalamic stimulation for Parkinson's; 2002 FDA approves DBS for Parkinson's; 2013 first adaptive DBS in patients; 2024 adaptive DBS trial in daily life; 2025 first adaptive DBS system approved."
+  caption="Some milestones, from the first experiments to adaptive DBS."
+  wide
+/>
+
+Interestingly, scientists still debate exactly *how* DBS works. The leading idea is that steady high-frequency pulses override the abnormal activity patterns that the circuit falls into when dopamine is missing, a bit like noise-cancelling headphones for a misbehaving brain rhythm.
+
+## The catch: the brain changes, the stimulation doesn't
+
+Conventional DBS is **always on, at the same setting**. A clinician tunes it during clinic visits, often months apart, and the device then delivers those exact pulses day and night.
+
+But a person with Parkinson's doesn't have one steady level of symptoms. They change with every medication dose, with sleep, with stress, and with whatever the person is doing. A setting that is right at 8 am, before the first pill, can be too much at noon, when the medication is also working.
+
+<Figure
+  src="/assets/writing/adaptive-dbs/fluctuations.svg"
+  alt="Illustrative chart: slowness rises and falls between medication doses while dyskinesia peaks after each dose, and conventional stimulation stays flat all day."
+  caption="An illustration (not real patient data) of how symptoms swing between doses while conventional stimulation stays the same."
+  wide
+/>
+
+That mismatch can mean under-treating some symptoms, over-stimulating at other times (which can affect speech, balance, or cause dyskinesia), and spending battery on stimulation that isn't needed. So researchers asked a natural question: **what if the device could tell how the brain is doing, and adjust itself?**
+
+## Listening to the brain
+
+The same electrodes that deliver stimulation can also *record*. They pick up the combined electrical activity of thousands of nearby neurons, called a **local field potential**. Like any signal, it can be broken down into rhythms of different speeds.
+
+In Parkinson's, one rhythm stands out. In the STN, activity in the **beta band** (roughly 13 to 30 cycles per second) is unusually strong when someone is off their medication, and it drops when levodopa kicks in ([Brown et al., 2001](https://doi.org/10.1523/JNEUROSCI.21-03-01033.2001)). It tends to track slowness and stiffness. And it doesn't hum along steadily: it comes in **bursts**, and longer bursts go with worse symptoms. Adaptive DBS, which we'll get to below, seems to help partly by cutting those long bursts short ([Tinkhauser et al., 2017](https://doi.org/10.1093/brain/awx010)).
+
+<Figure
+  src="/assets/writing/adaptive-dbs/beta.svg"
+  alt="Illustrative chart: a noisy brain signal with bursts of beta activity marked above it, and a power spectrum showing a large beta peak with medication off and a smaller one with medication on."
+  caption="Illustration. Left: a recorded signal with bursts of beta activity. Right: the strength of each rhythm. The beta peak is larger when medication is off."
+  wide
+/>
+
+That makes beta a candidate **biomarker**: a measurable signal that reflects how the person is doing, in real time, without them having to press a button or fill in a diary.
+
+## Closing the loop
+
+Adaptive DBS (aDBS), also called closed-loop DBS, puts these ideas together. The device senses the brain signal, decides whether a symptom is getting worse, and adjusts stimulation. Then it does it again, continuously. It's the same idea as a thermostat: measure the room, turn the heat up or down.
+
+<Figure
+  src="/assets/writing/adaptive-dbs/closed-loop.svg"
+  alt="Diagram of a loop: sense the brain signal, decide whether a symptom is getting worse, adjust stimulation, which changes the brain, which is sensed again."
+  caption="The adaptive DBS loop."
+/>
+
+In the simplest version, the device watches beta activity and only stimulates when it rises above a threshold:
+
+<Figure
+  src="/assets/writing/adaptive-dbs/adaptive.svg"
+  alt="Illustrative chart: beta activity rises and falls; whenever it crosses a dashed threshold line, stimulation switches on below it."
+  caption="Illustration of threshold-based adaptive DBS: stimulation turns on only when beta activity is high."
+  wide
+/>
+
+The first test of this in people came in 2013. Simon Little, Peter Brown and colleagues in Oxford and London used beta to trigger stimulation in eight people with Parkinson's, shortly after their surgery. Adaptive stimulation improved movement more than conventional stimulation, while stimulating less than half the time ([Little et al., 2013](https://doi.org/10.1002/ana.23951)). The setup was refreshingly hands-on: an amplifier, a data unit, and a laptop doing the thresholding.
+
+<Figure
+  src="/assets/writing/adaptive-dbs/little2013-fig1.jpg"
+  alt="Diagram of the 2013 adaptive DBS setup: electrodes in the brain connected to an amplifier, a data acquisition unit, a laptop that filters and thresholds the signal, and a stimulator triggered by the laptop."
+  caption="The first adaptive DBS setup in patients: the brain signal is amplified, filtered and thresholded on a laptop, which tells the stimulator when to turn on."
+  credit="Little et al., 2013, Annals of Neurology (CC BY)."
+  creditUrl="https://doi.org/10.1002/ana.23951"
+/>
+
+And here is what it looked like in practice, in real recordings from that study:
+
+<Figure
+  src="/assets/writing/adaptive-dbs/little2013-fig2a.png"
+  alt="Real recordings from the 2013 study. From bottom to top: raw brain signal, beta-filtered signal, beta amplitude with a threshold line, an on/off trigger, and bursts of stimulation that switch on when beta is above the threshold."
+  caption="Read from the bottom up: the raw brain signal, the same signal filtered to the beta band, beta amplitude compared with a threshold (grey line), the on/off trigger, and the stimulation itself. The box marks one moment where beta crosses the threshold and stimulation switches on. Note the scales: stimulation is in volts, the brain signal in millionths of a volt."
+  credit="Panel A of Figure 2 from Little et al., 2013, Annals of Neurology (CC BY), cropped."
+  creditUrl="https://doi.org/10.1002/ana.23951"
+  wide
+/>
+
+Those early experiments lasted minutes to hours, in a lab. The next step was to make it work for weeks, at home, in everyday life. Implants that can sense and stimulate at the same time made that possible. In 2024, a team at UCSF (the lab where I now work) ran a small blinded, randomized trial with four people. Each person picked the motor symptom that bothered them most. Instead of assuming beta was the right signal, the team searched each person's recordings for the one that best tracked their medication-driven ups and downs. For all four, it turned out to be a faster *gamma* rhythm that locks onto the stimulation itself. Participants then lived with adaptive and conventional DBS for about a month each, at home, without knowing which was which. Adaptive stimulation reduced the time they spent with their most bothersome symptom and improved quality of life compared with their already-optimized conventional settings ([Oehrn et al., 2024](https://doi.org/10.1038/s41591-024-03196-z)).
+
+And in February 2025, the FDA approved the first commercially available adaptive DBS system for Parkinson's, which adjusts stimulation based on the brain signals its implant records ([Medtronic, 2025](https://news.medtronic.com/2025-02-24-Medtronic-earns-U-S-FDA-approval-for-the-worlds-first-Adaptive-deep-brain-stimulation-system-for-people-with-Parkinsons)).
+
+## Why it's hard
+
+If the idea is so simple, why did it take a decade to go from the first experiment to an approved device? A few reasons:
+
+**The signals are tiny, and the stimulation is loud.** Brain rhythms recorded by the electrode are measured in millionths of a volt. Stimulation pulses are roughly a million times larger, and they're delivered right next to the recording contacts. Hearing a whisper while someone shouts beside you takes careful hardware and signal processing.
+
+**Stimulation changes the very signal you're listening to.** DBS is supposed to quiet abnormal rhythms, so the biomarker you use to decide when to stimulate shifts as soon as you do. A signal that tracked symptoms well with stimulation off may behave differently with it on.
+
+**"Beta" isn't one thing.** The power the device sees at a given frequency mixes a true rhythm with a broadband background that has a different biological meaning. Separating the two, and knowing which part to trust, matters more than it first appears.
+
+<Figure
+  src="/assets/writing/adaptive-dbs/periodic-aperiodic.svg"
+  alt="Illustration: the spectrum the device sees equals a smooth falling background (aperiodic) plus a bump at beta frequencies (periodic)."
+  caption="Illustration. A brain signal's spectrum is a rhythmic bump sitting on top of a smooth background. Both can change with symptoms and with stimulation."
+  wide
+/>
+
+**Every brain is different.** The best signal, threshold, and stimulation range vary from person to person, and they drift over months as the disease progresses and the tissue around the electrode settles.
+
+**Real life is messy.** At home, people walk, talk, sleep, take medication at slightly different times, and occasionally bump their devices. Recordings have gaps and artifacts. And to know whether a signal tracks symptoms, you need an independent measure of how the person is actually doing, such as a wearable, a symptom diary, or a clinical exam.
+
+This last point is where much of my own work sits. Studies like these generate months of continuous recordings per person, alongside wearable sensor data, sleep measurements, clinical scores and device logs. Turning that into something a clinician can trust means a lot of careful engineering: syncing data streams, cleaning out artifacts, testing which signals hold up, and building tools that let clinicians see what the algorithm is doing. Sometimes the answer isn't even in the brain: in a recent study I contributed to, the movement sensor already built into some implants tracked symptoms during stimulation as well as or better than neural signals ([Liu, Yao et al., 2026](https://doi.org/10.64898/2026.07.08.737286)).
+
+## Where it's heading
+
+Adaptive DBS is at an exciting point. The basic loop has been shown to work and is now available to patients. The open questions are about making it smarter and easier to use:
+
+- **Personalized signals.** Picking the right biomarker for each person, perhaps combining several signals instead of one.
+- **More than movement.** Researchers are exploring whether brain signals can also reflect sleep, mood and other symptoms that matter just as much to quality of life.
+- **Smarter algorithms.** Moving from a single threshold to models that learn how an individual's brain responds to stimulation over time.
+- **Less burden on clinicians.** Tools that help choose good settings quickly, instead of through months of trial and error.
+
+None of this replaces the clinician. The goal is to give them, and the people they care for, a device that responds to the brain in front of it, not one that runs the same program all day.
+
+---
+
+*This post is for general education and isn't medical advice. If you or someone you care about is considering DBS, please talk to a movement disorders neurologist.*
+
+## References
+
+1. Benabid AL, Pollak P, et al. Combined (thalamotomy and stimulation) stereotactic surgery of the VIM thalamic nucleus for bilateral Parkinson disease. *Appl Neurophysiol.* 1987;50:344–346. [doi:10.1159/000100803](https://doi.org/10.1159/000100803)
+2. Limousin P, Pollak P, et al. Effect of parkinsonian signs and symptoms of bilateral subthalamic nucleus stimulation. *Lancet.* 1995;345:91–95. [doi:10.1016/s0140-6736(95)90062-4](https://doi.org/10.1016/s0140-6736(95)90062-4)
+3. Brown P, Oliviero A, et al. Dopamine dependency of oscillations between subthalamic nucleus and pallidum in Parkinson's disease. *J Neurosci.* 2001;21:1033–1038. [doi:10.1523/JNEUROSCI.21-03-01033.2001](https://doi.org/10.1523/JNEUROSCI.21-03-01033.2001)
+4. Deuschl G, et al. A randomized trial of deep-brain stimulation for Parkinson's disease. *N Engl J Med.* 2006;355:896–908. [doi:10.1056/NEJMoa060281](https://doi.org/10.1056/NEJMoa060281)
+5. Little S, Pogosyan A, et al. Adaptive deep brain stimulation in advanced Parkinson disease. *Ann Neurol.* 2013;74:449–457. [doi:10.1002/ana.23951](https://doi.org/10.1002/ana.23951)
+6. Tinkhauser G, Pogosyan A, et al. The modulatory effect of adaptive deep brain stimulation on beta bursts in Parkinson's disease. *Brain.* 2017;140:1053–1067. [doi:10.1093/brain/awx010](https://doi.org/10.1093/brain/awx010)
+7. Lozano AM, Lipsman N, et al. Deep brain stimulation: current challenges and future directions. *Nat Rev Neurol.* 2019;15:148–160. [doi:10.1038/s41582-018-0128-2](https://doi.org/10.1038/s41582-018-0128-2)
+8. Neumann WJ, Gilron R, Little S, Tinkhauser G. Adaptive deep brain stimulation: from experimental evidence toward practical implementation. *Mov Disord.* 2023;38:937–948. [doi:10.1002/mds.29415](https://doi.org/10.1002/mds.29415)
+9. Oehrn CR, Cernera S, et al. Chronic adaptive deep brain stimulation versus conventional stimulation in Parkinson's disease: a blinded randomized feasibility trial. *Nat Med.* 2024;30:3345–3356. [doi:10.1038/s41591-024-03196-z](https://doi.org/10.1038/s41591-024-03196-z)
+10. Medtronic. Medtronic earns U.S. FDA approval for the world's first adaptive deep brain stimulation system for people with Parkinson's. Press release, February 24, 2025.
+11. Liu T, Yao J, et al. Device-embedded accelerometry complements neural signals for tracking parkinsonian motor states. *bioRxiv.* 2026. [doi:10.64898/2026.07.08.737286](https://doi.org/10.64898/2026.07.08.737286)
