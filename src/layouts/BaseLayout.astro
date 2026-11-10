@@ -11,11 +11,46 @@ import { profile } from "../data/profile";
 
 const {
   title = "Minghan (Max) Zhu | Software Engineer, UCSF",
-  description = "Minghan (Max) Zhu is a UCSF Neurology software engineer and Associate Specialist building ML/data infrastructure, neural signal models, and clinician-facing tools for adaptive DBS and neural signal research.",
+  description = "Minghan (Max) Zhu is a software engineer at UCSF's Movement Disorders and Neuromodulation Center, building machine learning and data tools for adaptive deep brain stimulation (DBS) in Parkinson's disease.",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const image = new URL(profile.heroImage, Astro.site).toString();
+const isHome = Astro.url.pathname === "/";
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Minghan Zhu",
+  alternateName: ["Max Zhu", "Minghan (Max) Zhu"],
+  url: Astro.site?.toString(),
+  image: new URL(profile.profileImage, Astro.site).toString(),
+  email: `mailto:${profile.email}`,
+  jobTitle: "Software Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "University of California, San Francisco",
+    url: "https://www.ucsf.edu",
+  },
+  affiliation: {
+    "@type": "Organization",
+    name: profile.affiliations[0].name,
+    url: profile.affiliations[0].url,
+  },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "Columbia University" },
+    { "@type": "CollegeOrUniversity", name: "Brandeis University" },
+  ],
+  knowsAbout: [
+    "Adaptive deep brain stimulation",
+    "Parkinson's disease",
+    "Neuromodulation",
+    "Neural signal processing",
+    "Machine learning",
+    "Software engineering",
+  ],
+  sameAs: [profile.orcid, profile.linkedin, profile.scholar, profile.github],
+};
 ---
 
 <!doctype html>
@@ -27,6 +62,11 @@ const image = new URL(profile.heroImage, Astro.site).toString();
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

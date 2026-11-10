@@ -8,6 +8,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/minghan-zhu",
   scholar: "https://scholar.google.com/citations?hl=en&user=4A3e0aMAAAAJ",
   github: "https://github.com/minghanzhu",
+  orcid: "https://orcid.org/0009-0004-9393-7157",
   affiliations: [
     {
       name: "UCSF Weill Institute for Neurosciences",
