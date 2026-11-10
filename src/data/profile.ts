@@ -3,8 +3,11 @@ export const profile = {
   role: "Software engineer and Associate Specialist, Department of Neurology, UCSF.",
   headline: "Software Engineer · UCSF Neurology",
   location: "San Francisco, CA",
-  email: "mz2716@columbia.edu",
+  email: "max.zhu2@ucsf.edu",
+  altEmail: "mz2716@columbia.edu",
   linkedin: "https://www.linkedin.com/in/minghan-zhu",
+  scholar: "https://scholar.google.com/citations?hl=en&user=4A3e0aMAAAAJ",
+  github: "https://github.com/minghanzhu",
   affiliations: [
     {
       name: "UCSF Weill Institute for Neurosciences",

@@ -34,7 +34,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <h2 class="side-label">Links</h2>
       <div class="side-block">
         <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+        <p><a href={`mailto:${profile.altEmail}`}>{profile.altEmail}</a></p>
         <p><a href={profile.linkedin}>LinkedIn</a></p>
+        <p><a href={profile.scholar}>Google Scholar</a></p>
+        <p><a href={profile.github}>GitHub</a></p>
       </div>
     </aside>
 
