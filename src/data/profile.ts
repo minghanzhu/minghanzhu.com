@@ -1,6 +1,7 @@
 export const profile = {
   name: "Minghan (Max) Zhu",
-  role: "Research engineer and Associate Specialist, Department of Neurology, UCSF.",
+  role: "Software engineer and Associate Specialist, Department of Neurology, UCSF.",
+  headline: "Software Engineer · UCSF Neurology",
   location: "San Francisco, CA",
   email: "mz2716@columbia.edu",
   linkedin: "https://www.linkedin.com/in/minghan-zhu",
@@ -14,12 +15,16 @@ export const profile = {
   profileImage: "/assets/minghan-zhu-profile.jpg",
   profileImageAlt: "Minghan Zhu at the San Francisco waterfront with the Bay Bridge in the background.",
   diagramImage: "/assets/dbs-system-illustration.jpg",
+  researchIntro:
+    "My work focuses on adaptive deep brain stimulation for Parkinson's disease: turning recordings from implanted devices, wearables, sleep, and clinic visits into tools that help decide how stimulation should adapt to each patient.",
   intro:
-    "I build the data infrastructure, neural signal models, and clinician-facing software behind adaptive DBS research at UCSF. My work turns implanted-device recordings, wearable data, sleep measures, and clinical assessments into reproducible ML pipelines for biomarker-guided neuromodulation.",
+    "Hi, I'm Max. I'm a software engineer in the Little/Starr Lab at UCSF's Movement Disorders and Neuromodulation Center, working with Dr. Simon Little and Dr. Phil Starr. I build software and ML tools for adaptive deep brain stimulation (DBS): brain implants for Parkinson's disease that adapt to each patient's brain activity.",
+  motivation:
+    "I got into this work because I wanted to use machine learning and software for real problems in neuroscience and clinical research, especially neuromodulation. It's also personal: my grandma had Parkinson's disease and Alzheimer's, and watching her struggle made me want to build technology that improves life for patients and their families. In the long run, I hope to help move neuromodulation research forward by building reliable, practical tools that clinicians and researchers can use to improve patient outcomes.",
   bio: [
-    "I am a computer scientist working between machine learning, neural engineering, and clinical research operations. In UCSF Neurology, I help design and maintain a custom adaptive DBS pipeline for Parkinson's disease studies, connecting simulator-driven parameter testing, probabilistic stimulation-effect models, surrogate neural-signal generation, symptom-profile metrics, and constrained optimization for clinician-reviewed parameter selection.",
-    "That work sits on longitudinal, multimodal data from implanted sensing devices, wearables, sleep recordings, clinical assessments, and device logs. My day-to-day focus is making experimental ML systems reliable, reproducible, and usable by investigators and clinicians, while keeping enough domain context to reason about neural signals, device constraints, and the clinical questions behind the code.",
-    "Before UCSF, I built data-heavy software across healthcare ETL, IoT systems, housing data analytics, and semantic catalog mapping. That background shaped how I approach research engineering: rigorous enough for science, practical enough for real workflows, and designed so specialists can inspect, trust, and extend the system.",
+    "I'm a software engineer working across machine learning, neural engineering, and clinical research. At UCSF, I help build a pipeline for adaptive DBS studies: it simulates stimulation settings, models how the brain responds, and helps clinicians choose parameters they can review and trust.",
+    "Most of my work is with long-running, messy data: recordings from implanted devices, wearables, sleep studies, and clinic visits. My job is to make it reliable enough that researchers and clinicians can actually use it.",
+    "Before UCSF, I built software in very different places: healthcare data pipelines, smart-city IoT research, housing data analytics, and semantic catalog mapping. That mix taught me to build things rigorous enough for science and practical enough for the people using them.",
   ],
   focus: [
     "Adaptive DBS ML pipelines for Parkinson's disease and broader adaptive neuromodulation",
@@ -28,22 +33,9 @@ export const profile = {
     "Clinician-facing decision-support visualizations and reproducible research software",
   ],
   quickStats: [
-    {
-      value: "5",
-      label: "integrated modules in a custom aDBS ML pipeline",
-    },
-    {
-      value: "24",
-      label: "patient longitudinal study data design across neural, wearable, sleep, and clinical sources",
-    },
-    {
-      value: "2",
-      label: "neural decoding conference publications",
-    },
-    {
-      value: "1",
-      label: "patent application publication in catalog mapping",
-    },
+    { value: "5", label: "modules in a custom aDBS ML pipeline" },
+    { value: "24", label: "patient longitudinal multimodal study design" },
+    { value: "3", label: "neuroscience publications and presentations" },
   ],
 };
 
@@ -122,11 +114,12 @@ export const experience = [
 export const research = [
   {
     lab: "University of California, San Francisco (UCSF)",
-    context: "Department of Neurology / UCSF Weill Institute for Neurosciences",
+    context: "Little/Starr Lab · Movement Disorders and Neuromodulation Center · UCSF Weill Institute for Neurosciences",
     dates: "May 2025 - Present",
     title: "Associate Specialist",
     summary:
       "Research role focused on adaptive DBS, neural signal analysis, and ML/data infrastructure for movement, motivation, and sleep studies, with clinician-facing visualization tools for aDBS optimization.",
+    tags: ["Adaptive DBS", "Neural signals", "Clinical ML"],
   },
   {
     lab: "Columbia University",
@@ -135,6 +128,7 @@ export const research = [
     title: "Research Assistant",
     summary:
       "Used signal analysis and machine learning in the NSF-funded COSMOS smart-city IoT intersections project to optimize traffic flow, reduce congestion, and improve urban safety in New York City.",
+    tags: ["IoT", "Signal analysis", "Smart cities"],
   },
   {
     lab: "Columbia University",
@@ -143,10 +137,27 @@ export const research = [
     title: "Research Assistant",
     summary:
       "Developed a heuristic system that automatically summarizes local government meeting videos using language processing and computer vision to extract key segments.",
+    tags: ["NLP", "Computer vision", "Summarization"],
   },
 ];
 
 export const publications = [
+  {
+    type: "Preprint",
+    title: "Device-embedded accelerometry complements neural signals for tracking parkinsonian motor states",
+    venue: "bioRxiv · doi:10.64898/2026.07.08.737286",
+    dates: "Jul 9, 2026",
+    authors:
+      "Tao Liu, Jiaang Yao, Bahman Abdi-Sargezeh, Abhinav Sharma, Camille Lasbareilles, Robert Tsi Lok Ho, Jackson TS Cheung, Timothy Denison, Huiling Tan, Wolf-Julian Neumann, Minghan Max Zhu, Sebastian Liu, Philip A Starr, Simon Little, Ashwini Oswal",
+    url: "https://doi.org/10.64898/2026.07.08.737286",
+    figure: {
+      src: "/assets/publications/accelerometry-fig1.jpg",
+      alt: "Figure 1 from the paper: cortical and STN recording contact locations, a person wearing an implanted sensing DBS device and a PKG watch with example ECoG, LFP, accelerometer and symptom-score traces, and a feature matrix used to predict dyskinesia and bradykinesia scores.",
+      caption: "Fig. 1 · Multimodal recordings and feature extraction during naturalistic behaviour. From Liu, Yao et al. (2026), bioRxiv, CC BY 4.0.",
+    },
+    summary:
+      "Across 1,900+ hours of chronic STN, cortical, and device-embedded accelerometry recordings, accelerometry tracked bradykinesia and dyskinesia across stimulation conditions and outperformed neural features for symptom decoding, supporting its use as a behavioural biomarker for adaptive DBS.",
+  },
   {
     type: "Conference poster",
     title: "Machine Learning Decoding of Emotional Valence from Intracranial Cortical and Subcortical Electrophysiological Signals",
@@ -181,19 +192,22 @@ export const publications = [
 
 export const education = [
   {
+    degree: "M.S. · Computer Science",
     school: "Columbia University",
     location: "New York, NY",
-    credentials: [
-      "Master of Science in Computer Science, Sep 2021 - Feb 2023",
-      "Bachelor of Science in Computer Science, Sep 2018 - May 2020",
-    ],
+    dates: "Sep 2021 - Feb 2023",
   },
   {
+    degree: "B.S. · Computer Science",
+    school: "Columbia University",
+    location: "New York, NY",
+    dates: "Sep 2018 - May 2020",
+  },
+  {
+    degree: "Computer Science coursework, before transferring to Columbia",
     school: "Brandeis University",
     location: "Waltham, MA",
-    credentials: [
-      "Majored in Computer Science before transferring to Columbia University, Sep 2015 - May 2018",
-    ],
+    dates: "Sep 2015 - May 2018",
   },
 ];
 

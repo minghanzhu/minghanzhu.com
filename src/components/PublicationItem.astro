@@ -1,0 +1,36 @@
+---
+interface Props {
+  item: {
+    type: string;
+    title: string;
+    venue: string;
+    dates: string;
+    authors: string;
+    url: string;
+    summary?: string;
+    figure?: { src: string; alt: string; caption: string };
+  };
+  showSummary?: boolean;
+}
+
+const { item, showSummary = false } = Astro.props;
+
+// Bold my own name in the author list.
+const authorParts = item.authors.split(/(Minghan Max Zhu|Minghan Zhu|Max Zhu|M\. Zhu)/);
+---
+
+<article class="pub">
+  <p class="meta"><span class="pill">{item.type}</span> {item.dates}</p>
+  <h3><a href={item.url}>{item.title}</a></h3>
+  <p class="authors">
+    {authorParts.map((part, i) => (i % 2 === 1 ? <strong>{part}</strong> : part))}
+  </p>
+  <p class="muted small">{item.venue}</p>
+  {showSummary && item.summary && <p class="summary">{item.summary}</p>}
+  {showSummary && item.figure && (
+    <figure class="pub-figure">
+      <img src={item.figure.src} alt={item.figure.alt} loading="lazy" />
+      <figcaption>{item.figure.caption}</figcaption>
+    </figure>
+  )}
+</article>

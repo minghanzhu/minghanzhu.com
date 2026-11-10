@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  href?: string;
+  linkText?: string;
+}
+
+const { label, href, linkText = "View all" } = Astro.props;
+---
+
+<div class="section-heading">
+  <h2>{label}</h2>
+  <span class="rule" aria-hidden="true"></span>
+  {href && <a href={href}>{linkText} →</a>}
+</div>

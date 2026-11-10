@@ -5,6 +5,9 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://minghanzhu.com",
   integrations: [mdx()],
+  redirects: {
+    "/resume": "/cv/",
+  },
   vite: {
     plugins: [tailwindcss()],
   },

@@ -1,0 +1,97 @@
+---
+import PublicationItem from "../components/PublicationItem.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import TagList from "../components/TagList.astro";
+import { education, experience, profile, publications, research, skills } from "../data/profile";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="CV | Minghan (Max) Zhu"
+  description="CV for Minghan (Max) Zhu, UCSF Neurology software engineer and Associate Specialist building ML/data infrastructure, neural signal models, and clinical research software for adaptive DBS."
+>
+  <section class="wrap page-head cv-head">
+    <div>
+      <p class="kicker">CV</p>
+      <h1>{profile.name}</h1>
+      <p class="lede">{profile.role}<br />{profile.location}</p>
+    </div>
+    <div class="actions">
+      <a class="button primary" href={`mailto:${profile.email}`}>Email</a>
+      <a class="button" href={profile.linkedin}>LinkedIn</a>
+    </div>
+  </section>
+
+  <div class="wrap cv-layout">
+    <aside class="cv-side">
+      <h2 class="side-label">Skills</h2>
+      {skills.map((group) => (
+        <div class="side-block">
+          <h3>{group.group}</h3>
+          <p>{group.items.join(" · ")}</p>
+        </div>
+      ))}
+      <h2 class="side-label">Links</h2>
+      <div class="side-block">
+        <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+        <p><a href={profile.linkedin}>LinkedIn</a></p>
+      </div>
+    </aside>
+
+    <div class="cv-main">
+      <section class="section">
+        <SectionHeading label="Experience" />
+        {experience.map((item) => (
+          <div class="timeline-row">
+            <p class="date">{item.dates}</p>
+            <div>
+              <h3>{item.title}</h3>
+              <p class="org">{item.company}</p>
+              <p class="muted small">{item.location}</p>
+              <ul class="bullets">
+                {item.bullets.map((bullet) => <li>{bullet}</li>)}
+              </ul>
+              <TagList items={item.tags} />
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section class="section">
+        <SectionHeading label="Research" />
+        {research.map((item) => (
+          <div class="timeline-row">
+            <p class="date">{item.dates}</p>
+            <div>
+              <h3>{item.title}</h3>
+              <p class="org">{item.lab}</p>
+              <p class="muted small">{item.context}</p>
+              <p>{item.summary}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section class="section">
+        <SectionHeading label="Education" />
+        {education.map((item) => (
+          <div class="timeline-row">
+            <p class="date">{item.dates}</p>
+            <div>
+              <h3>{item.degree}</h3>
+              <p class="org">{item.school}</p>
+              <p class="muted small">{item.location}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section class="section">
+        <SectionHeading label="Publications" />
+        <div class="pub-list">
+          {publications.map((item) => <PublicationItem item={item} />)}
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+import PublicationItem from "../components/PublicationItem.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import TagList from "../components/TagList.astro";
+import { profile, publications, research } from "../data/profile";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const [current, ...past] = research;
+---
+
+<BaseLayout
+  title="Research | Minghan (Max) Zhu"
+  description="Research by Minghan (Max) Zhu: ML and data infrastructure for adaptive deep brain stimulation, neural decoding, and earlier work in IoT and language/vision systems."
+>
+  <section class="wrap narrow page-head">
+    <p class="kicker">Research</p>
+    <h1>Machine learning and software for adaptive neuromodulation</h1>
+    <p class="lede">{profile.researchIntro}</p>
+  </section>
+
+  <section class="wrap narrow section">
+    <SectionHeading label="Current work" />
+    <article class="card">
+      <p class="meta">{current.dates}</p>
+      <h3>Adaptive DBS pipeline <span class="muted">· {current.lab}</span></h3>
+      <p class="muted small">{current.context}</p>
+      {[profile.bio[0], profile.motivation, ...profile.bio.slice(1)].map((paragraph) => <p>{paragraph}</p>)}
+      <figure>
+        <img
+          src={profile.diagramImage}
+          alt="Illustration of a deep brain stimulation system with implanted brain leads and an external controller."
+          loading="lazy"
+        />
+      </figure>
+      <ul class="bullets">
+        {profile.focus.map((item) => <li>{item}</li>)}
+      </ul>
+      <TagList items={current.tags} />
+    </article>
+  </section>
+
+  <section class="wrap narrow section" id="publications">
+    <SectionHeading label="Publications" />
+    <div class="pub-list">
+      {publications.map((item) => <PublicationItem item={item} showSummary />)}
+    </div>
+  </section>
+
+  <section class="wrap narrow section">
+    <SectionHeading label="Earlier research" />
+    <div class="stack">
+      {past.map((item) => (
+        <article class="card">
+          <p class="meta">{item.dates}</p>
+          <h3>{item.title} <span class="muted">· {item.lab}</span></h3>
+          <p class="muted small">{item.context}</p>
+          <p>{item.summary}</p>
+          <TagList items={item.tags} />
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
